@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seth's Mobile Mechanic</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, color 0.3s;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            color: #fffacd;
+        }
+
+        #hero {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hero h2 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-btn {
+            background: linear-gradient(45deg, #ffdd57, #2575fc);
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #2575fc;
+        }
+
+        /* About Section */
+        #about {
+            background: #fff;
+        }
+
+        #about p {
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 1.2rem;
+        }
+
+        /* Services Section */
+        #services .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Reviews Section */
+        .review {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+        }
+
+        .review-author {
+            font-weight: bold;
+            color: #6a11cb;
+        }
+
+        /* Contact Section */
+        #contact form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact form input,
+        #contact form textarea {
+            width: 100%;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        #contact form button {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact form button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Map Section */
+        #map-container {
+            height: 400px;
+            border-radius: 15px;
+            margin-top: 1rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Seth's Mobile Mechanic</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Reliable Repairs, <br>Wherever You Are</h2>
+        <p>We bring quality automotive repairs directly to your doorstep.</p>
+        <a href="#contact" class="cta-btn">Book Now</a>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Seth's Mobile Mechanic offers top-notch automotive repair services with over 15 years of experience. 
+            Our mission is to deliver unparalleled convenience and ensure your safety. Whether it's a quick oil 
+            change or a detailed brake repair, we bring the garage to you.
+        </p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Oil Changes</h3>
+                <p>Quick, efficient, and reliable oil change service at your location.</p>
+            </div>
+            <div class="service-item">
+                <h3>Brake Repair</h3>
+                <p>Ensure safety with expert brake repair and replacement services.</p>
+            </div>
+            <div class="service-item">
+                <h3>Battery Replacement</h3>
+                <p>Dead battery? We'll replace it on-site to get you back on the road.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>What Our Customers Say</h2>
+        <div class="review">
+            <p>"Seth's service is outstanding! Highly recommend." <span class="review-author">- John D.</span></p>
+        </div>
+        <div class="review">
+            <p>"Fast, reliable, and professional. A lifesaver!" <span class="review-author">- Sarah T.</span></p>
+        </div>
+        <div class="review">
+            <p>"Excellent experience! Fixed my brakes on-site." <span class="review-author">- Emily R.</span></p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="5" placeholder="How can we help?" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="map-container"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Seth's Mobile Mechanic. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const map = L.map('map-container').setView([34.0522, -118.2437], 10); // Example: Los Angeles coordinates
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+        L.marker([34.0522, -118.2437]).addTo(map).bindPopup('Seth\'s Mobile Mechanic is here!').openPopup();
+    </script>
+</body>
+</html>
+
